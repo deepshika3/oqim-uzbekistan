@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pkl
+*.log
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
+.DS_Store

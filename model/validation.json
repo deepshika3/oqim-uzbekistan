@@ -1,0 +1,24 @@
+{
+ "thermal": 70.84711199999998,
+ "coal": 5.465723455200002,
+ "solar_wind": 10.452888,
+ "hydro": 6.3,
+ "imports": 0.0,
+ "unserved": 0.0,
+ "power_gas": 14.531481275713961,
+ "by_class": {
+  "OLDG": 13.604788687999996,
+  "COAL": 5.465723455200002,
+  "CCGT": 42.05199683519999,
+  "ENG": 9.72460302159999
+ },
+ "generation": 87.59999999999998,
+ "nonpower_gas_2025": 29.96851872428604,
+ "actual": {
+  "generation": 86.7,
+  "thermal": 69.9,
+  "solar_wind": 10.5,
+  "hydro": 6.3,
+  "power_gas_IEA_share": 16.465
+ }
+}
