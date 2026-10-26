@@ -147,6 +147,17 @@ Shortages are a timing problem. In January 2023 Turkmen gas stopped at $-19.8\,^
 
 We did not choose projects one at a time. Our least-cost planning model of the power and gas system follows OSeMOSYS and NEMO \cite{osemosys,nemo} and is solved in Pyomo with HiGHS \cite{team-model}. In stage 1 the government commits to what to build, where and when in 2027--2036: 16 project types, 500~kV circuits, a Kambarata-1 share (yes or no) and the barter's size. In stage 2 the system runs with whatever was built in each of twelve futures across five regions, three seasons, three parts of the day (day, the 17:00--21:00 peak, night) and a cold design day. The model minimises expected present cost $\sum_{t=2027}^{2040}(1+r)^{-(t-2027)}[\mathrm{INV}_t+\sum_\omega \pi_\omega \mathrm{OPX}_{t,\omega}]$ with $r=8\%$ and future probabilities $\pi_\omega$, within the US\$14.1 billion public budget (at most US\$2.0 billion a year), power and gas balances, regional distribution limits, build rates and lead times. Two service limits hold in expectation: unserved electricity below 2.5\% of demand in 2027--2029 and 0.44\% from 2030 (the winter 2022 and 2024 levels), and at most 1.5 million households in winter energy poverty from 2030. The model counts people, not only energy: a household is in winter energy poverty if its gas is cut, it loses evening power, or it heats with an inefficient coal or wood stove. When gas runs short, industry and CNG stations are cut first, as in January 2023 \cite{kun2023}. Reliability is a limit, not a cost, because Uzbekistan's value of lost load (US\$0.06/kWh) is too low to prevent large shortages \cite{wb2013-voll}. The futures combine demand growth of 4.8\% or 6.4\% a year, gas output that follows the official forecast (48.5~bcm by 2030) or declines 3\% a year, and normal (80\%), cold (12\%) or cold winters with an import cut (8\%) \cite{kun-target}. With the 2025 fleet the model produces 87.6~TWh against the actual 86.7~TWh. Code, inputs with sources and results: \url{https://github.com/deepshika3/oqim-uzbekistan}.
 
+\begin{figure}[!t]
+\centering
+\begin{minipage}[b]{0.43\textwidth}\centering
+\includegraphics[width=\linewidth,height=128pt,keepaspectratio]{figures/fig4_gas_paths}\\[-2pt]{\small (a)}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.55\textwidth}\centering
+\includegraphics[width=\linewidth,height=128pt,keepaspectratio]{figures/fig3b_demand}\\[-2pt]{\small (b)}
+\end{minipage}
+\caption{The futures the model is tested against. (a) Domestic gas production: actual (2026 annualised) and the two supply paths \cite{siat-gas,kun-target}. (b) Published electricity demand forecasts for 2030 and 2035 against the 2035 range spanned by our two demand paths \cite{get-forecast}.}\label{fig:futures}
+\end{figure}
+
 % =====================================================================
 % 4. PLAN
 % =====================================================================
@@ -239,6 +250,17 @@ Nuclear (Jizzakh) & 0 & 2.1 & 0.90 & 0 & 1.9 & 16.6 \\
 
 A plan designed for the average future cannot reach the 1.5 million target (its best is 1.83 million), and perfect foresight would be worth about US\$1.5 billion, so the plan favours fast, flexible measures early. Across nine tests (discount rates, outage and gas-shortage values, late nuclear, weaker lines, less available plants, faster gas decline, no barter) public spend stays between US\$4.6 and 6.2 billion and the core measures are always chosen; gas storage enters only when gas shortages are valued twice as high or money is cheaper (6\%) \cite{team-model}. A one-year slip of every project costs US\$1.8 billion and moves the target to 2031, and a two-year slip makes it unreachable, hence the readiness gate. Gas cuts to industry still reach 4.5~bcm in 2036, so industrial efficiency and storage are reviewed in 2029.
 
+\begin{figure}[!t]
+\centering
+\begin{minipage}[b]{0.56\textwidth}\centering
+\includegraphics[width=\linewidth,height=135pt,keepaspectratio]{figures/fig6a_stress_spend}\\[-2pt]{\small (a)}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.42\textwidth}\centering
+\includegraphics[width=\linewidth,height=135pt,keepaspectratio]{figures/fig6b_industry_gas_cuts}\\[-2pt]{\small (b)}
+\end{minipage}
+\caption{(a) Public spend under each stress test; the dashed line is the plan (US\$5.02~bn). Labels give the change in expected present-value cost in US\$~bn; n/c marks tests that change how costs are counted. A two-year slip of every project is infeasible and not shown. (b) Expected gas cuts to industry and CNG stations; household gas cuts stay near zero with the plan \cite{team-model}.}\label{fig:stress}
+\end{figure}
+
 % =====================================================================
 % 7. BARTER
 % =====================================================================
@@ -248,8 +270,13 @@ The barter buys what Uzbekistan cannot build in time: firm winter-evening power 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.52\linewidth,height=115pt,keepaspectratio]{figures/fig7a_barter_legs}
-\caption{The three legs of the exchange per annual cycle; blue winter power, amber summer power, teal water, grey the drought contingency.}\label{fig:barter}
+\begin{minipage}[b]{0.56\textwidth}\centering
+\includegraphics[width=\linewidth,height=130pt,keepaspectratio]{figures/fig7a_barter_legs}\\[-2pt]{\small (a)}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.42\textwidth}\centering
+\includegraphics[width=\linewidth,height=130pt,keepaspectratio]{figures/fig7b_barter_calendar}\\[-2pt]{\small (b)}
+\end{minipage}
+\caption{(a) The three legs of the exchange per annual cycle; blue winter power, amber summer power, teal water, grey the drought contingency. (b) Barter calendar: deliveries above zero (in winter the dark part goes to Uzbekistan, the light part to Kyrgyzstan; water in GWh-eq) and Uzbekistan's summer repayment below zero.}\label{fig:barter}
 \end{figure}
 
 Settlement uses one unit: 1~GWh-eq is 1~GWh of summer-window power, and winter deliveries count 1.35 times. Kazakhstan delivers (175 + 75)~GWh $\times$ 1.35 = 337.5~GWh-eq, settled by Uzbekistan's summer delivery. Uzbekistan finances 175 $\times$ 1.35 = 236.25~GWh-eq for Kyrgyzstan, repaid by 50~GWh of summer hydro and about 0.18~km\textsuperscript{3} of extra release valued at 186.25~GWh-eq; at 0.9--1.0~kWh per m\textsuperscript{3} on the cascade, 175~GWh of avoided winter generation leaves about 0.18~km\textsuperscript{3} in Toktogul \cite{usaid-epic}. Kyrgyzstan is paid once, with 175~GWh of winter power; the water credit only repays Uzbekistan for financing it. The cascade output from the release is the same water's energy moved from winter to summer, when Kyrgyz power is worth least, so Kyrgyzstan keeps it and it is credited to no account.
@@ -331,6 +358,12 @@ Emergency reserve$^{a}$            & 1.502 & --    & 1.502 & --    & --    & -- 
 \par\smallskip{\scriptsize\raggedright \textit{Assumptions.} (i) Constant 2025 US\$; private capital sits outside the public ceiling. (ii) Development banks (MDB) co-finance only lines with an existing bank programme (networks, irrigation, heating, district heat); all other lines are domestic. (iii) The model's US\$5.024 billion (Table~\ref{tab:planpage}) maps onto these lines as: networks 2.975 (distribution 2.811 and Fergana line 0.164; 2.710 from base, 0.265 from the Dec 2029 release), gas 0.760 (leak repair, workovers), renewables 0.058 (small hydro), heating 1.181 (boilers, stoves) and regional exchange 0.050 (barter); the rest of each line, and the irrigation, district-heat and critical-facility lines the model does not size, are planning allowances. (iv) Dec 2029 and Dec 2032 funds are released only if that review confirms the trigger (stricter household or reliability target, gas decline, verified delivery). $^{a}$\,Held outside base and conditional funding: US\$0.450B operator step-in, US\$0.400B seasonal backup, US\$0.250B winter lifeline support, US\$0.402B residual risks.\par}
 \end{table}
 
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.62\linewidth,height=110pt,keepaspectratio]{figures/fig9b_timeline}
+\caption{Delivery timeline from Table~\ref{tab:planpage}: building or installing (wide bar) and in operation (thin bar); amber fuel security, blue networks, teal households, grey barter.}\label{fig:timeline}
+\end{figure}
 
 Build rates match recent experience \cite{enerdata}. Technologies not chosen today are watched with a trigger each. Batteries return below about US\$35/kWh or after two good winters in the compact's cold-weather pilot. Heat pumps save gas only above a coefficient of performance (COP) of 1.95--3.04 against an 85\% boiler, so they wait until the winter margin plant is over 50\% efficient and measured seasonal COP exceeds 3. Geothermal waits for wells that beat gas boilers, hydrogen for electrolysis cheaper than gas-based ammonia.
 
