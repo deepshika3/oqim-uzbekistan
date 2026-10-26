@@ -20,6 +20,7 @@
 \usepackage{booktabs,tabularx,array}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{placeins}
 \usepackage{enumitem}
 \usepackage{caption}
 \usepackage[numbers,sort&compress]{natbib}
@@ -99,24 +100,13 @@ Uzbekistan is connected but not reliably supplied. Gas output has fallen 30\% si
 
 We chose the projects with a two-stage optimisation model of the power and gas system, which fixes all investments for 2027--2036 before the future is known and tests them against twelve futures, including continued gas decline and a repeat of the January 2023 supply cut. The plan keeps households in winter energy poverty at or below 1.5 million from 2030, against 5.7 million by 2036 if nothing is built. Its core is efficient boilers and clean stoves, gas leak repair and well workovers, 9.4~GW of distribution upgrades, a new Tashkent--Fergana 500~kV line and 11~GW of privately financed solar. Two delivery programmes sit around it: CESAN (Competitive Energy Services and Accountable Networks), which ties network spending to audited service, and a mineral--energy compact that turns mining expansion into shared grid assets and certified grid equipment. The plan commits US\$5.4 billion of public and US\$6.8 billion of private money; a further US\$3.6 billion is released at the 2029 and 2032 reviews if stricter targets are adopted, and US\$5.1 billion is held in reserve, so the full US\$14.1 billion allowance is assigned. A metered exchange with Kazakhstan and Kyrgyzstan adds firm winter-evening power and summer irrigation water from 2027. Over 2027--2040 the plan costs society US\$2.1 billion less in present value than doing nothing, saves 9.7~bcm of imported gas and avoids 15~bcm of gas cuts to industry.
 
-\begin{table}[H]
-\centering\footnotesize
-\caption{Plan at a glance.}\label{tab:glance}
-\begin{tabularx}{\textwidth}{@{}YYYY@{}}
-\toprule
-\headrow Households in winter energy poverty & Money (2027--2036) & Saving against doing nothing & Barter, per year \\
-\midrule
-At most 1.5~m from 2030 (5.7~m by 2036 with no new projects) & Public: US\$5.4~bn committed, US\$3.6~bn conditional, US\$5.1~bn reserve. Private: US\$6.8~bn & US\$2.1~bn in present value; 9.7~bcm less imported gas & 75~GWh winter-evening power; 0.18~km\textsuperscript{3} summer water \\
-\bottomrule
-\end{tabularx}
-\end{table}
 
 % =====================================================================
 % 1. DIAGNOSIS
 % =====================================================================
 \section{National diagnosis}\label{sec:diagnosis}
 
-Round 1 found that the system runs short exactly when demand peaks, on winter evenings, and that new generation alone does not close the gap: a plant becomes service only with an offtake contract, a grid connection and a working operator \cite{oecd-roadmap,bennon,wb-navoi}. Table~\ref{tab:baseline} sets out the baseline our model is calibrated against and the six investment lines the plan is organised around, each with one owner and one budget line. Gas, electricity and heat compete for the same winter peak, so cost recovery must be balanced with household protection \cite{imf-2026,wb-dpo}.
+The system runs short exactly when demand peaks, on winter evenings, and new generation alone does not close the gap: a plant becomes service only with offtake, a grid connection and an operator \cite{oecd-roadmap,bennon}. Table~\ref{tab:baseline} gives the baseline and the six investment lines, each with one owner and one budget line.
 
 \begin{table}[!hb]
 \centering\footnotesize
@@ -144,11 +134,11 @@ Need is not spread evenly (Figure~\ref{fig:map}). Surkhandarya and Karakalpaksta
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\textwidth]{figures/fig2_uzbekistan_map}
+\includegraphics[width=0.92\textwidth]{figures/fig2_uzbekistan_map}
 \caption{Where the plan acts. (a) The five model regions: Tashkent (city, region, Syrdarya, Jizzakh), Fergana Valley (Fergana, Andijan, Namangan), Centre (Samarkand, Navoi, Bukhara), South (Kashkadarya, Surkhandarya) and West (Karakalpakstan, Khorezm); bold outlines mark priority regions. (b) The Tashkent--Fergana area with the new 500~kV circuit, the Almalyk copper complex, the reservoirs and the barter flows. Borders: Natural Earth; provinces: Highsoft. Locations are approximate.}\label{fig:map}
 \end{figure}
 
-Shortages are a timing problem. In January 2023 Turkmen gas stopped at $-19.8\,^{\circ}$C and the country moved to rolling blackouts \cite{eurasianet2023,kun2023}; in December 2025 a turbine failure and an import cut led to 17:00--21:00 rationing until mid-January \cite{tca-rationing}. Forecasts by the German Economic Team (GET) and others put 2035 demand at 131 to 154~TWh \cite{get-forecast,eshchanov}; our two demand paths span this range.
+Shortages are a timing problem. In January 2023 Turkmen gas stopped at $-19.8\,^{\circ}$C and the country moved to rolling blackouts \cite{eurasianet2023,kun2023}; in December 2025 a turbine failure and an import cut led to 17:00--21:00 rationing until mid-January \cite{tca-rationing}. Our demand paths span the 131--154~TWh forecast for 2035 by the German Economic Team (GET) and others \cite{get-forecast,eshchanov}.
 
 % =====================================================================
 % 3. MODEL
@@ -188,7 +178,7 @@ P6 & Barter metering and settlement & 3 legs & 2027--36 & 40 & 4 & 6 & 50 \\
 
 Homes and heat come first because they reach people most cheaply. A boiler at about 80\% efficiency saves around 625~m\textsuperscript{3} of gas a winter for US\$860, and a clean stove halves solid-fuel use for US\$236 \cite{esmap-kg}. Stoves reach 1.18 million of the 2.5 million coal and wood households by 2030, and most of the 1.5 million households still counted are the rest. The cap stays at 1.5 million because stoves and boilers can only be installed so fast; reaching 1.0 million from 2032 needs 330,000 more stoves, 4~GW more distribution, gas storage and Kambarata-1, about US\$3.6 billion, the conditional tranche in Table~\ref{tab:budget}. Leak repair and workovers add gas faster than any new field \cite{trend-wells,wb-gasnet}.
 
-On the power side the binding limit is the grid. Without new projects, 2032 evening cuts reach about 810~GWh in Tashkent and 560~GWh in Fergana; distribution upgrades and the new circuit cut them to 4 and 50~GWh (Figure~\ref{fig:results}b). Solar does not cover the evening peak, but it saves daytime gas so plants can run in the evening; by 2036 solar supplies about 35~TWh and the Jizzakh nuclear plant under construction about 17~TWh \cite{wnn-nuclear}. Households in winter energy poverty fall from 2.7 million to 1.5 million by 2030 and stay there (Figure~\ref{fig:results}a). A rural Surkhandarya family that heats with coal gets a clean stove by 2029 through its mahalla \cite{mfa-mahalla}, halving fuel use and indoor smoke, a burden that falls mostly on women \cite{wb-female}, while evening outages in the South fall from about 540 to 20~GWh a winter.
+On the power side the binding limit is the grid. Without new projects, 2032 evening cuts reach about 810~GWh in Tashkent and 560~GWh in Fergana; distribution upgrades and the new circuit cut them to 4 and 50~GWh (Figure~\ref{fig:results}b). Solar does not cover the evening peak, but it saves daytime gas so plants can run in the evening; by 2036 solar supplies about 35~TWh and the Jizzakh nuclear plant under construction about 17~TWh \cite{wnn-nuclear}. Households in winter energy poverty fall from 2.7 million to 1.5 million by 2030 and stay there (Figure~\ref{fig:results}a). A rural Surkhandarya family on coal gets a free clean stove by 2029 through its mahalla \cite{mfa-mahalla}, halving fuel use and smoke \cite{wb-female}, while evening outages in the South fall from 540 to 20~GWh.
 
 \begin{figure}[!t]
 \centering
@@ -204,7 +194,7 @@ On the power side the binding limit is the grid. Without new projects, 2032 even
 \caption{Model results, expected over the twelve futures \cite{team-model}. (a) Households in winter energy poverty. (b) Winter evening cuts (17:00--21:00) by region in 2032. (c) Generation with the plan; about 2~TWh of imports a year not shown.}\label{fig:results}
 \end{figure}
 
-Table~\ref{tab:mix} explains the mix. Solar adds 11~GW but nothing at the winter evening peak, so firm capacity comes from committed gas plants and nuclear; in 2036 accredited capacity is only about 1~GW above the expected peak, and it depends on gas, so the plan buys gas security first. The model rejected wind (about US\$1,380/kW, 15\% credit at the peak) \cite{ns-bash}, rebuilding old gas plants (US\$1,000/kW), insulation (US\$9,300 a home) \cite{wb-heating} and pump upgrades. Batteries enter only below about US\$35/kWh for a two-hour system, a fifth of today's US\$165, because evening shortages come from grid limits and gas. Kambarata-1 is not chosen in the standard runs and is reviewed in 2029.
+Table~\ref{tab:mix} explains the mix. Solar adds 11~GW but nothing at the winter evening peak, so firm capacity comes from committed gas plants and nuclear; in 2036 accredited capacity is only about 1~GW above the expected peak, and it depends on gas, so the plan buys gas security first. The model rejected wind (15\% credit at the peak) \cite{ns-bash}, plant rebuilds, insulation (US\$9,300 a home) \cite{wb-heating} and pump upgrades. Batteries enter only below about US\$35/kWh for a two-hour system, a fifth of today's US\$165, because evening shortages come from grid limits and gas. Kambarata-1 is not chosen in the standard runs and is reviewed in 2029.
 
 \begin{table}[!t]
 \centering\footnotesize
@@ -233,28 +223,12 @@ Nuclear (Jizzakh) & 0 & 2.1 & 0.90 & 0 & 1.9 & 16.6 \\
 % =====================================================================
 \section{Impact on the economy, households and environment}\label{sec:impact}
 
-\textit{Economy.} The plan cuts gas imports by 9.7~bcm over 2027--2036, about US\$1.6 billion at the US\$160 per 1,000~m\textsuperscript{3} paid for Russian gas \cite{kun-gazprom}, and avoids 15~bcm of expected gas cuts to industry and CNG stations, protecting fertiliser, chemicals, metals and transport fuel in cold winters. Unserved electricity falls by 2.9~TWh in 2030 and 7.1~TWh in 2032. Installing 3.3 million boilers and stoves and rebuilding 9.4~GW of distribution is local work, so jobs are tracked as a delivery indicator rather than assumed.
+\textit{Economy.} The plan cuts gas imports by 9.7~bcm over 2027--2036, about US\$1.6 billion at the US\$160 per 1,000~m\textsuperscript{3} paid for Russian gas \cite{kun-gazprom}, and avoids 15~bcm of expected gas cuts to industry and CNG stations, protecting fertiliser, chemicals, metals and transport fuel in cold winters. Unserved electricity falls by 2.9~TWh in 2030 and 7.1~TWh in 2032. Jobs from installing 3.3 million boilers and stoves are tracked, not assumed.
 
-\textit{Household bills.} Since 1 June 2026, 300~kWh a month costs UZS~220,000 (UZS~650/kWh to 200~kWh, 900 above), and gas costs UZS~1,100/m\textsuperscript{3} within the 500~m\textsuperscript{3} winter norm and 2,000 above \cite{moe-tariff,kun-tariff2026}; the October 2026 changes are proposed, not enacted, and not assumed \cite{moe-proposals}. A household pays half of a US\$860 boiler, about UZS~5.1 million at UZS~12,000 per dollar \cite{zamin-fx}, and saves UZS~0.7--1.25 million a winter, a payback of four to eight winters. Stoves are free to eligible families and halve their coal or wood spending. Low-income compensation, now UZS~1 million a year \cite{wb-reforms}, and efficiency keep a basic package below 5\% of household spending as tariffs rise.
+\textit{Household bills.} Since 1 June 2026, 300~kWh a month costs UZS~220,000 (UZS~650/kWh to 200~kWh, 900 above), and gas costs UZS~1,100/m\textsuperscript{3} within the 500~m\textsuperscript{3} winter norm and 2,000 above \cite{moe-tariff,kun-tariff2026}; the October 2026 changes are proposed, not enacted, and not assumed \cite{moe-proposals}. A household pays half of a US\$860 boiler, about UZS~5.1 million at UZS~12,000 per dollar \cite{zamin-fx}, and saves UZS~0.7--1.25 million a winter, a payback of four to eight winters. Stoves are free to eligible families and halve their coal or wood spending. Compensation (UZS~1 million a year) \cite{wb-reforms} and efficiency keep a basic package below 5\% of spending.
 
-\textit{Environment, including the costs.} Power-sector CO\textsubscript{2} is 41~Mt in 2036 with the plan against 46~Mt without new projects, and repairing 1.0~bcm a year of leaks avoids about 21~Mt~CO\textsubscript{2}e a year if that gas would otherwise vent (methane at 29.8 times CO\textsubscript{2}) \cite{ipcc-ar6,methanesat}. There are negatives. Solar needs about 22,000~ha; the model sites it in the Centre, South and Tashkent on non-irrigated land, with dry cleaning and planted dust buffers, with none in Karakalpakstan without a dust and habitat review. Toktogul's summer releases change river flows, so they stay above ecological minimums and shrink in dry years. And 2.1 million gas boilers lock in gas heating to about 2042, so they must have low-NO\textsubscript{x} burners and be heat-pump-ready, and public boiler subsidies end after 2033. For air the endpoint is the WHO 5~\textmu g/m\textsuperscript{3}; stoves, boilers and leak repair are the first step from 38.8. Table~\ref{tab:social} links the plan to everyday services.
+\textit{Environment, including the costs.} Power-sector CO\textsubscript{2} is 41~Mt in 2036 with the plan against 46~Mt without new projects, and repairing 1.0~bcm a year of leaks avoids about 21~Mt~CO\textsubscript{2}e a year if that gas would otherwise vent (methane at 29.8 times CO\textsubscript{2}) \cite{ipcc-ar6,methanesat}. There are negatives. Solar needs about 22,000~ha; the model sites it in the Centre, South and Tashkent on non-irrigated land, with dry cleaning and planted dust buffers, with none in Karakalpakstan without a dust and habitat review. Toktogul's summer releases change river flows, so they stay above ecological minimums and shrink in dry years. And 2.1 million gas boilers lock in gas heating to about 2042, so they must have low-NO\textsubscript{x} burners and be heat-pump-ready, and public boiler subsidies end after 2033. \textit{Social effects.} Clinics, schools and water and wastewater pumps sit on priority feeders and are tracked by outage hours; barter water is reported as water received by each irrigation area; avoided gas cuts keep CNG stations open; and clean stoves cut the time, mostly women's, spent gathering fuel and breathing smoke.
 
-\begin{table}[!t]
-\centering\footnotesize
-\caption{Social mapping: how the plan reaches everyday services.}\label{tab:social}
-\begin{tabularx}{\textwidth}{@{}L{2.0cm}L{5.6cm}Y@{}}
-\toprule
-\headrow Service & Plan element & What is measured \\
-\midrule
-Health & Clinics on priority feeders; clean stoves and boilers & Clinic outage hours; CO poisonings \\
-Education & Schools on priority feeders & School days lost to cold or outages \\
-Food & Fergana irrigation water; pumping power & Water received per irrigation area \\
-Water and sanitation & Drinking-water and wastewater pumps on priority feeders & Pump outage hours \\
-Transport & CNG stations protected by avoided gas cuts & CNG closure days \\
-Women's time & Clean stoves halve fuel gathering and smoke & Time on fuel; smoke exposure \\
-\bottomrule
-\end{tabularx}
-\end{table}
 
 \noindent\fcolorbox{headblue}{rowblue!40}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\footnotesize\textbf{How the headline numbers are derived.} Saving: present cost 2027--2040 at 8\% is US\$30,240~million with no new projects and US\$28,124~million with the plan, a difference of US\$2.1~billion \cite{team-model}. Unserved electricity: 3.39 $-$ 0.49 = 2.9~TWh (2030); 7.65 $-$ 0.54 = 7.1~TWh (2032). Imports: 79.5 $-$ 69.8 = 9.7~bcm. Heat losses falling from 38\% to 20\% cut the input for the same useful heat by 1 $-$ 0.62/0.80 = 22.5\%. Solar: IRENA's US\$691/kW for 2024 \cite{irena}, falling 4.7\% a year, gives US\$410--490/kW in 2031--2035, in line with Uzbek auctions under 2~US\textcent/kWh \cite{ifc-navoi,mercom-masdar}, so 11~GW costs about US\$4.9~billion.}}
 
@@ -270,7 +244,7 @@ A plan designed for the average future costs about US\$70 million more in the tw
 % =====================================================================
 \section{Barter partnership: seasonal water--energy exchange}\label{sec:barter}
 
-The barter buys what Uzbekistan cannot build in time: firm winter-evening power and growing-season water from the Naryn cascade. Kazakhstan supplies winter power to Kyrgyzstan and Uzbekistan; Uzbekistan repays Kazakhstan with summer solar-hour power; and Kyrgyzstan keeps water in Toktogul instead of generating with it in winter, repaying Uzbekistan with summer hydropower and an extra July--August release (Figure~\ref{fig:barter}). Kazakhstan has thermal supply and a southern summer deficit (900~GWh of exchanges already contracted for 2026) \cite{astana2025}; Kyrgyzstan owns Toktogul and imported 3.6~TWh in 2024 \cite{tca2025}. Tajikistan is the drought contingency through Kayrakkum and the Regar--Guzar 500~kV route; Turkmenistan has no seasonal storage \cite{akchabar2025} and Afghanistan no winter surplus. The 1998 Syr Darya Agreement lapsed after 2002 and the 2025 Cholpon-Ata protocols revived swaps without a repayment rule \cite{syr1998,adb36516,astana2025}, so the three ministries sign a new protocol (Table~\ref{tab:terms}) under the 1999 parallel-operation agreement \cite{parallel1999}, with a Tajik annex \cite{uztj1999}.
+The barter buys what Uzbekistan cannot build in time: firm winter-evening power and growing-season water from the Naryn cascade. Kazakhstan supplies winter power to Kyrgyzstan and Uzbekistan; Uzbekistan repays Kazakhstan with summer solar-hour power; and Kyrgyzstan keeps water in Toktogul instead of generating with it in winter, repaying Uzbekistan with summer hydropower and an extra July--August release (Figure~\ref{fig:barter}). Kazakhstan needs summer power in its south \cite{astana2025}; Kyrgyzstan owns Toktogul and imported 3.6~TWh in 2024 \cite{tca2025}; Tajikistan is the drought contingency via Kayrakkum and the Regar--Guzar line. Turkmenistan has no seasonal storage and Afghanistan no winter surplus. The 1998 Syr Darya Agreement lapsed after 2002 and the 2025 Cholpon-Ata protocols revived swaps without a repayment rule \cite{syr1998,adb36516,astana2025}, so the three ministries sign a new protocol (Table~\ref{tab:terms}) under the 1999 parallel-operation agreement \cite{parallel1999}, with a Tajik annex \cite{uztj1999}.
 
 \begin{figure}[!t]
 \centering
@@ -299,7 +273,7 @@ Tajik contingency release & $\le$0.10~km\textsuperscript{3} & Jul--Aug, drought 
 
 Until the plan's solar arrives in 2031, Uzbekistan repays from its existing and committed solar (about 6.9~GW), under 5\% of its May--September output. Kazakhstan is a net importer over a year (2.4~TWh short in 2024) \cite{timesca-kzdeficit}, so firmness is not assumed: 250~GWh is 0.2\% of its generation, capacity is reserved and tested before each season, and a failed test means the leg is not activated and nothing is owed. The 75~GWh is a pilot, about 5\% of the 1,370~GWh of modelled 2032 evening cuts in Tashkent and Fergana without new projects; domestic upgrades close the rest. A Joint Settlement Committee with an independent engineer recalibrates the 1.35 coefficient each September within 1.2--1.5; up to 10\% of the repayment may be made in accepted Uzbek-made grid equipment; Energiya schedules flows \cite{cdc-energiya}; the Basin Water Organisation (BWO) Syrdarya verifies releases; and border meter data are shared in real time.
 
-Shortfalls below 95\% of a monthly contract are made up within 60 days at 110\%; notified maintenance, grid-security curtailment and force majeure are excused; low inflow scales the Kyrgyz release and activates the Tajik annex; two unexcused shortfalls suspend the leg; disputes go to the Committee, the independent engineer, then UNCITRAL arbitration. Each cycle is judged on energy delivered (at least 95\%), water received by each irrigation area (at least 90\%), no evening rationing on priority feeders, reported feeder by feeder, and equipment accepted. Releases stay above ecological minimums. The pilot needs US\$50 million for metering, settlement and verification. At the 2029 review it may double from 2030 only after two verified cycles with net benefit for every party, and any party may exit with 12 months' notice once balances are settled, while the meters stay in service for bilateral dispatch. Politics supports a pilot: winter shortages are a live issue in Kyrgyzstan, the barter does not depend on Kambarata-1, and the Tajik annex builds on existing trade. The exchange is a stage-1 choice in the model, about cost-neutral for Uzbekistan, adding 160~MW of firm evening supply, and a first step towards regional integration worth about US\$3.5 billion a year by 2035 \cite{agora}.
+Shortfalls below 95\% of a monthly contract are made up within 60 days at 110\%; notified maintenance, grid-security curtailment and force majeure are excused; low inflow scales the Kyrgyz release and activates the Tajik annex; two unexcused shortfalls suspend the leg; disputes go to the Committee, the independent engineer, then UNCITRAL arbitration. Each cycle is judged on energy delivered (at least 95\%), water received by each irrigation area (at least 90\%), no evening rationing on priority feeders, reported feeder by feeder, and equipment accepted. Releases stay above ecological minimums. The pilot needs US\$50 million for metering, settlement and verification. At the 2029 review it may double from 2030 only after two verified cycles with net benefit for every party, and any party may exit with 12 months' notice once balances are settled, while the meters stay in service for bilateral dispatch. Politics favours a pilot: winter shortages are a live issue in Kyrgyzstan, and the barter does not depend on Kambarata-1. The exchange is a stage-1 choice in the model, about cost-neutral for Uzbekistan, adding 160~MW of firm evening supply, and a first step towards regional integration worth about US\$3.5 billion a year by 2035 \cite{agora}.
 
 % =====================================================================
 % 8. DELIVERY
@@ -308,7 +282,7 @@ Shortfalls below 95\% of a monthly contract are made up within 60 days at 110\%;
 
 The Ministry of Energy owns delivery through one project unit, working with the National Electric Grid, the regional distribution companies and Uztransgaz; the Ministry of Economy and Finance releases money, holds the reserve and records PPP obligations as contingent liabilities \cite{imf-2026}; an independent engineer signs baselines and acceptance; and the regulator sets tariffs and standards \cite{emdra}. Every project passes a readiness gate (permits, grid connection, offtake, funded maintenance), and every contract names the owner, the operator and who pays for maintenance.
 
-\textit{CESAN} builds on unbundling, bilateral-contract rules and the Samarkand distribution PPP \cite{res527,pf202,samarkand-ppp,team-cesan}. It ties network spending to audited feeder performance, choosing per district between public delivery, a performance contract, a concession or a regulated private operator against a public-sector comparator, and opens industrial bilateral contracts and a 30~MW demand-response pilot. One asset register stops any feeder being paid for twice \cite{adb-loan,remit}. The US\$400 million envelope (US\$360 million public, including a US\$180 million network line, and US\$40 million private) breaks even at 18~GWh a year of avoided outages \cite{wb-pad}; the plan avoids 2.9~TWh in 2030, so the hurdle is small, but CESAN's own share is proven against matched untreated feeders. Delhi's turnaround and Uganda's contested Umeme handback show both the gain and the need for fixed exit terms \cite{tata-delhi,umeme}.
+\textit{CESAN} builds on unbundling, bilateral-contract rules and the Samarkand distribution PPP \cite{res527,pf202,samarkand-ppp,team-cesan}. It ties network spending to audited feeder performance, choosing per district between public delivery, a performance contract, a concession or a regulated private operator against a public-sector comparator, and opens industrial bilateral contracts and a 30~MW demand-response pilot. The US\$400 million envelope (US\$360 million public, including a US\$180 million network line, and US\$40 million private) breaks even at 18~GWh a year of avoided outages \cite{wb-pad}; the plan avoids 2.9~TWh in 2030, so the hurdle is small, but CESAN's own share is proven against matched untreated feeders. Delhi's turnaround and Uganda's contested Umeme handback show both the gain and the need for fixed exit terms \cite{tata-delhi,umeme}.
 
 \textit{The mineral--energy compact} links Uzbekistan's 120 planned mineral projects \cite{pres-minerals,pres-electrical} to the grid: a mine shares a substation with nearby mahallas only if sharing is cheaper than separate connections \cite{columbia-shared}, and a copper-to-grid programme qualifies Uzbek cables and transformers \cite{iea-minerals}. Efficiency, waste heat and mine-water projects proceed only after site audits; precedents in Hamburg and Chile show what works, and Indonesia's captive coal what to avoid \cite{aurubis,codelco,iea-asean}. Its US\$540 million envelope holds US\$390 million of base capital (shared grids 180, equipment 55, efficiency and heat 80, battery pilot and critical-service solar 60, preparation 15); sponsors provide US\$280 million and US\$200 million is public, led by Almalyk \cite{ammc,team-minerals}.
 
@@ -355,20 +329,15 @@ Emergency reserve$^{c}$ & 2.118 & -- & 2.118 & -- & -- & -- & -- & 2.118 \\
 \par\smallskip{\scriptsize\raggedright $^{a}$\,Multilateral development banks. Our rule: network assets are two-thirds bank credit and one-third domestic, as in the World Bank distribution programme (US\$100m credit, US\$50m utility) \cite{wb-distribution}; all else domestic. $^{b}$\,Released by that review; model re-run with ${\le}1.0$\,m households from 2032 and cuts ${<}0.2\%$. $^{c}$\,Allowance: outages valued at US\$2,000/MWh; emergency reserve: step-in, backup supply, plant overhauls, storage pilots.\par}
 \end{table}
 
-\begin{figure}[!t]
-\centering
-\includegraphics[max width=0.62\linewidth]{figures/fig9b_timeline}
-\caption{Delivery timeline: building (wide bar) and operating (thin bar), by investment line (amber P1, blue P2, teal P3, grey barter).}\label{fig:delivery}
-\end{figure}
 
-Build rates match recent experience \cite{enerdata,rogtec} (Figure~\ref{fig:delivery}). Technologies not chosen today are watched with a trigger each. Batteries return below about US\$35/kWh or after two good winters in the compact's cold-weather pilot. Heat pumps save gas only above a coefficient of performance (COP) of 1.95--3.04 against an 85\% boiler, so they wait until the winter margin plant is over 50\% efficient and measured seasonal COP exceeds 3. Geothermal heat waits for exploration wells that beat gas boilers, and hydrogen for electrolytic hydrogen cheaper than gas-based ammonia at Navoi or Fergana.
+Build rates match recent experience \cite{enerdata,rogtec}. Technologies not chosen today are watched with a trigger each. Batteries return below about US\$35/kWh or after two good winters in the compact's cold-weather pilot. Heat pumps save gas only above a coefficient of performance (COP) of 1.95--3.04 against an 85\% boiler, so they wait until the winter margin plant is over 50\% efficient and measured seasonal COP exceeds 3. Geothermal waits for wells that beat gas boilers, hydrogen for electrolysis cheaper than gas-based ammonia.
 
 % =====================================================================
 % 10. METRICS
 % =====================================================================
 \section{Measuring success and failure}\label{sec:metrics}
 
-Each metric in Table~\ref{tab:metrics} is tied to a diagnosed constraint and marked by its source \cite{who-housing,naruc,esmap-mtf,iea-kgz}. Outages are reported feeder by feeder and barter water by irrigation area. Milestones: 0.9 million boilers and 1.0 million stoves by 2030, the Fergana line in 2032, 11~GW of new solar by 2036. Success means verified service, not contracted capacity.
+Table~\ref{tab:metrics} ties each metric to a diagnosed constraint. Outages are reported feeder by feeder and barter water by irrigation area. Milestones: 0.9 million boilers and 1.0 million stoves by 2030, the Fergana line in 2032, 11~GW of new solar by 2036. Success means verified service, not contracted capacity.
 
 \begin{table}[!t]
 \centering\footnotesize
@@ -389,11 +358,12 @@ Roadblocks & Readiness-gate pass rate; tenders; PPP liabilities disclosed & 100\
 \end{tabularx}
 \end{table}
 
+\FloatBarrier
 % =====================================================================
-\begin{multicols}{2}
-\footnotesize
+{\setlength{\columnsep}{10pt}\begin{multicols}{3}
+\scriptsize\setlength{\bibsep}{0pt}
 \bibliographystyle{unsrtnat}
 \bibliography{refs}
-\end{multicols}
+\end{multicols}}
 
 \end{document}
